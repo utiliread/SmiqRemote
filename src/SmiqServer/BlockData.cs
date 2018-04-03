@@ -22,23 +22,37 @@ namespace SmiqServer
             return encoded;
         }
 
-        public static int DecodeLength(ReadOnlySpan<byte> data)
+        public static bool TryDecodeLength(ReadOnlySpan<byte> data, out int length)
         {
+            if (data.Length < 2)
+            {
+                length = default;
+                return false;
+            }
+
             if (data[0] != '#')
             {
                 throw new ArgumentException();
             }
 
             var lengthLength = data[1] - '0';
-            var dataLength = int.Parse(Encoding.ASCII.GetString(data.Slice(2, lengthLength).ToArray()));
             var headerLength = 2 + lengthLength;
 
-            return headerLength + dataLength + 1;
+            if (data.Length < headerLength)
+            {
+                length = default;
+                return false;
+            }
+
+            var dataLength = int.Parse(Encoding.ASCII.GetString(data.Slice(2, lengthLength).ToArray()));
+
+            length = headerLength + dataLength + 1;
+            return true;
         }
 
         public static byte[] Decode(ReadOnlySpan<byte> data)
         {
-            if (data.Length != DecodeLength(data))
+            if (!TryDecodeLength(data, out var length) || data.Length != length)
             {
                 throw new ArgumentException();
             }

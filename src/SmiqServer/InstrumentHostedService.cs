@@ -68,6 +68,8 @@ namespace SmiqServer
         {
             var options = _options.Value;
 
+            _logger.LogInformation("Opening {SerialPort}", options.Port);
+
             using (var port = new SerialPortStream(options.Port, options.Baud))
             {
                 port.Open();
@@ -117,22 +119,22 @@ namespace SmiqServer
 
                                 while (length == -1 || offset < length)
                                 {
+                                    var oldOffset = offset;
                                     var increased = await port.ReadAsync(buffer, offset, buffer.Length - offset, cancellationToken);
-
-                                    var relativeIndex = buffer.AsSpan().Slice(offset, increased).IndexOfAny((byte)'#', (byte)'\n');
-                                    var index = offset + relativeIndex;
 
                                     offset += increased;
 
-                                    if (index >= 0)
+                                    if (offset > 0 && buffer[offset] == '#' && BlockData.TryDecodeLength(buffer.AsSpan().Slice(0, offset), out var decodedLength))
                                     {
-                                        if (buffer[index] == '#')
+                                        length = decodedLength;
+                                    }
+                                    else
+                                    {
+                                        var relativeIndex = buffer.AsSpan().Slice(oldOffset, increased).IndexOf((byte)'\n');
+
+                                        if (relativeIndex >= 0)
                                         {
-                                            length = BlockData.DecodeLength(buffer.AsSpan().Slice(0, offset));
-                                        }
-                                        else if (index > 0)
-                                        {
-                                            length = index;
+                                            length = oldOffset + relativeIndex + 1;
                                         }
                                     }
                                 }
