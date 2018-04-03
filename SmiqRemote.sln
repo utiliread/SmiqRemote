@@ -5,6 +5,14 @@ VisualStudioVersion = 15.0.27520.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmiqServer", "src\SmiqServer\SmiqServer.csproj", "{6A99FB73-E76B-4371-9C9D-8907AD2946BC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A9E1DD4D-C530-47F7-B46A-FD1B488A8C1B}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		README.md = README.md
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmiqRemote", "src\SmiqRemote\SmiqRemote.csproj", "{672422A5-F054-45C3-9D53-403C78834748}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +23,10 @@ Global
 		{6A99FB73-E76B-4371-9C9D-8907AD2946BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A99FB73-E76B-4371-9C9D-8907AD2946BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A99FB73-E76B-4371-9C9D-8907AD2946BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{672422A5-F054-45C3-9D53-403C78834748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{672422A5-F054-45C3-9D53-403C78834748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{672422A5-F054-45C3-9D53-403C78834748}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{672422A5-F054-45C3-9D53-403C78834748}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
