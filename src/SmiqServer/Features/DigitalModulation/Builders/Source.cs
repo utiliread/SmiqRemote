@@ -1,4 +1,4 @@
-﻿namespace SmiqServer.Features.Source.Builders
+﻿namespace SmiqServer.Features.DigitalModulation.Builders
 {
     public class Source
     {

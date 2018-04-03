@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using SmiqServer.Features.DigitalModulation.Builders;
 using System.Threading.Tasks;
-using SmiqServer.Features.Source.Builders.DigitalModulation;
 
-namespace SmiqServer.Features.Source
+namespace SmiqServer.Features.DigitalModulation
 {
-    public partial class SourceController
+    public partial class DigitalModulationController
     {
-        [HttpGet("DigitalModulation/DataLists")]
+        [HttpGet("DataLists")]
         public Task<string[]> GetAll(DataList.GetAll query) => query.ExecuteAsync(_instrument);
 
-        [HttpGet("DigitalModulation/DataLists/{Name}")]
+        [HttpGet("DataLists/{Name}")]
         public Task<byte[]> Get(DataList.GetData query) => query.ExecuteAsync(_instrument);
 
-        [HttpPut("DigitalModulation/DataLists/{Name}")]
+        [HttpPut("DataLists/{Name}")]
         public Task Set(DataList.SetData command) => command.ExecuteAsync(_instrument);
 
-        [HttpDelete("DigitalModulation/DataLists/{Name}")]
+        [HttpDelete("DataLists/{Name}")]
         public Task Delete(DataList.Delete command) => command.ExecuteAsync(_instrument);
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SmiqServer.Features.Source
+namespace SmiqServer.Features.DigitalModulation
 {
     public enum SourceType
     {

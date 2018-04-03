@@ -1,4 +1,4 @@
-﻿namespace SmiqServer.Features.Source.Builders.DigitalModulation
+﻿namespace SmiqServer.Features.DigitalModulation.Builders
 {
     public class FskDeviation
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace SmiqServer.Features.Source
+namespace SmiqServer.Features.DigitalModulation
 {
     public class ControlSignalDto
     {

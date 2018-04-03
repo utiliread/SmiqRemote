@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace SmiqServer.Features.Source
+namespace SmiqServer.Features.DigitalModulation
 {
     public static class Mappings
     {

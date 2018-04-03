@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Linq;
 using System.Text;
 
-namespace SmiqServer.Features.Source.Builders.DigitalModulation
+namespace SmiqServer.Features.DigitalModulation.Builders
 {
     public class DataList
     {
