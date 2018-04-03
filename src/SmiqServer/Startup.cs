@@ -52,6 +52,7 @@ namespace SmiqServer
             }
 
             app
+                .UseCors(options => options.AllowAnyMethod().AllowAnyOrigin().AllowAnyHeader())
                 .UseMvc()
                 .UseSwagger()
                 .UseSwaggerUI(options => options.SwaggerEndpoint("/swagger/v1/swagger.json", "Vector Signal Generator"));
