@@ -1,21 +1,51 @@
 <template>
-    <select class="form-control" value.bind="selectedControlListName">
-        <option repeat.for="controlList of controlListNames" model.bind="controlList">${controlList}</option>
-    </select>
-    <button class="btn btn-default" type="button" click.delegate="create()">New...</button>
-    <button class="btn btn-default" type="button" click.delegate="exportSelected()">Download</button>
-    <button class="btn btn-danger" type="button" click.delegate="deleteSelected()">Delete</button>
-    <button class="btn btn-default" type="button" click.delegate="addSignal()">Add signal</button>
-    <table>
+    <div class="btn-toolbar justify-content-between">
+        <div class="input-group">
+            <select class="form-control" value.bind="selectedControlListName">
+                <option repeat.for="controlList of controlListNames" model.bind="controlList">${controlList}</option>
+            </select>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-default" type="button" click.delegate="create()">
+                <fa-icon name="plus"></fa-icon>
+            </button>
+            <button class="btn btn-default" type="button" click.delegate="exportSelected()">
+                <fa-icon name="download"></fa-icon>
+            </button>
+            <button class="btn btn-danger" type="button" click.delegate="deleteSelected()">
+                <fa-icon name="trash"></fa-icon>
+            </button>
+        </div>
+    </div>
+
+    <table class="table">
         <tr repeat.for="signal of signals">
-            <td><input class="form-control" type="number" min="1" max="${$index === 0 ? 1 : symbolMax}" value.bind="signal.symbol"></td>
-            <td><b-checkbox checked.bind="signal.burstGate">BG</b-checkbox></td>
-            <td><b-checkbox checked.bind="signal.levelAttenuation">LA</b-checkbox></td>
-            <td><b-checkbox checked.bind="signal.continuousWave">CW</b-checkbox></td>
-            <td><b-checkbox checked.bind="signal.hopping">HOP</b-checkbox></td>
-            <td><b-checkbox checked.bind="signal.triggerOutput1">T1</b-checkbox></td>
-            <td><b-checkbox checked.bind="signal.triggerOutput2">T2</b-checkbox></td>
-            <td><button class="btn btn-danger" type="button" click.delegate="removeSignal($index)" disabled.bind="$index === 0">Remove</button></td>
+            <td>
+                <input class="form-control" type="number" min="1" max="${$index === 0 ? 1 : symbolMax}" value.bind="signal.symbol">
+            </td>
+            <td>
+                <b-checkbox checked.bind="signal.burstGate">BG</b-checkbox>
+            </td>
+            <td>
+                <b-checkbox checked.bind="signal.levelAttenuation">LA</b-checkbox>
+            </td>
+            <td>
+                <b-checkbox checked.bind="signal.continuousWave">CW</b-checkbox>
+            </td>
+            <td>
+                <b-checkbox checked.bind="signal.hopping">HOP</b-checkbox>
+            </td>
+            <td>
+                <b-checkbox checked.bind="signal.triggerOutput1">T1</b-checkbox>
+            </td>
+            <td>
+                <b-checkbox checked.bind="signal.triggerOutput2">T2</b-checkbox>
+            </td>
+            <td>
+                <button class="btn btn-danger" type="button" click.delegate="removeSignal($index)" disabled.bind="$index === 0"><fa-icon name="minus"></fa-icon></button>
+            </td>
         </tr>
     </table>
+    <button class="btn btn-default" type="button" click.delegate="addSignal()">
+        <fa-icon name="plus"></fa-icon> Add signal</button>
 </template>

@@ -1,8 +1,7 @@
+import { Http, HttpBuilder, HttpBuilderOfT } from "ur-http";
+
 import { DigitalModulation } from "./digital-modulation";
 import { Frequency } from "./frequency";
-import { Http } from "ur-http";
-import { HttpBuilder } from "ur-http/dist/esm/http-builder";
-import { HttpBuilderOfT } from "ur-http/dist/esm/http-builder-of-t";
 import { Level } from "./level";
 import { Modulation } from "./modulation";
 import { Output } from "./output";

@@ -1,10 +1,22 @@
 <template>
-    <select class="form-control" value.bind="selectedDataListName">
-        <option repeat.for="dataList of dataListNames" model.bind="dataList">${dataList}</option>
-    </select>
-    <button class="btn btn-default" type="button" click.delegate="create()">New...</button>
-    <button class="btn btn-default" type="button" click.delegate="exportSelected()">Download</button>
-    <button class="btn btn-danger" type="button" click.delegate="deleteSelected()">Delete</button>
+    <div class="btn-toolbar justify-content-between">
+        <div class="input-group">
+            <select class="form-control" value.bind="selectedDataListName">
+                <option repeat.for="dataList of dataListNames" model.bind="dataList">${dataList}</option>
+            </select>
+        </div>
+        <div class="btn-group">
+            <button class="btn btn-default" type="button" click.delegate="create()">
+                <fa-icon name="plus"></fa-icon>
+            </button>
+            <button class="btn btn-default" type="button" click.delegate="exportSelected()">
+                <fa-icon name="download"></fa-icon>
+            </button>
+            <button class="btn btn-danger" type="button" click.delegate="deleteSelected()">
+                <fa-icon name="trash"></fa-icon>
+            </button>
+        </div>
+    </div>
     <div class="form-group">
         <textarea class="form-control" value.bind="dataListHex & validate & updateTrigger:'blur':'paste'"></textarea>
     </div>

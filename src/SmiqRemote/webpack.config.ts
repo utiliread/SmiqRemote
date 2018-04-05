@@ -1,5 +1,3 @@
-/// <reference path="node_modules/aurelia-webpack-plugin/dist/types/index.d.ts" />
-
 import * as HtmlPlugin from "html-webpack-plugin";
 
 import { Configuration, HotModuleReplacementPlugin } from "webpack";
@@ -29,7 +27,7 @@ const config: Configuration = {
         new HotModuleReplacementPlugin()
     ],
     devServer: {
-        contentBase: "dist",
+        contentBase: "wwwroot",
         hot: true
     }
 }
