@@ -1,0 +1,21 @@
+<template>
+    <select class="form-control" value.bind="selectedControlListName">
+        <option repeat.for="controlList of controlListNames" model.bind="controlList">${controlList}</option>
+    </select>
+    <button class="btn btn-default" type="button" click.delegate="create()">New...</button>
+    <button class="btn btn-default" type="button" click.delegate="exportSelected()">Download</button>
+    <button class="btn btn-danger" type="button" click.delegate="deleteSelected()">Delete</button>
+    <button class="btn btn-default" type="button" click.delegate="addSignal()">Add signal</button>
+    <table>
+        <tr repeat.for="signal of signals">
+            <td><input class="form-control" type="number" min="1" max="${$index === 0 ? 1 : symbolMax}" value.bind="signal.symbol"></td>
+            <td><b-checkbox checked.bind="signal.burstGate">BG</b-checkbox></td>
+            <td><b-checkbox checked.bind="signal.levelAttenuation">LA</b-checkbox></td>
+            <td><b-checkbox checked.bind="signal.continuousWave">CW</b-checkbox></td>
+            <td><b-checkbox checked.bind="signal.hopping">HOP</b-checkbox></td>
+            <td><b-checkbox checked.bind="signal.triggerOutput1">T1</b-checkbox></td>
+            <td><b-checkbox checked.bind="signal.triggerOutput2">T2</b-checkbox></td>
+            <td><button class="btn btn-danger" type="button" click.delegate="removeSignal($index)" disabled.bind="$index === 0">Remove</button></td>
+        </tr>
+    </table>
+</template>

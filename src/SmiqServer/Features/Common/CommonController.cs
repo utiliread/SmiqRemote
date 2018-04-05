@@ -24,6 +24,6 @@ namespace SmiqServer.Features.Common
         public Task Reset(Reset command) => command.ExecuteAsync(_instrument);
 
         [HttpPost("[action]")]
-        public Task Trigger(Trigger command) => command.ExecuteAsync(_instrument);
+        public Task Trig(Trig command) => command.ExecuteAsync(_instrument);
     }
 }

@@ -2,7 +2,7 @@
 
 namespace SmiqServer.Features.DigitalModulation
 {
-    public enum SequenceType
+    public enum TriggerModeType
     {
         Auto,
         Retrig,
@@ -18,15 +18,15 @@ namespace SmiqServer.Features.DigitalModulation
         /// </summary>
         /// <param name="sequenceType"></param>
         /// <returns></returns>
-        public static string ToSerialString(this SequenceType sequenceType)
+        public static string ToSerialString(this TriggerModeType sequenceType)
         {
             switch (sequenceType)
             {
-                case SequenceType.Auto: return "AUTO";
-                case SequenceType.Retrig: return "RETR";
-                case SequenceType.ArmedAuto: return "AAUT";
-                case SequenceType.ArmedRetrig: return "ARET";
-                case SequenceType.Single: return "SING";
+                case TriggerModeType.Auto: return "AUTO";
+                case TriggerModeType.Retrig: return "RETR";
+                case TriggerModeType.ArmedAuto: return "AAUT";
+                case TriggerModeType.ArmedRetrig: return "ARET";
+                case TriggerModeType.Single: return "SING";
                 default: throw new NotSupportedException();
             }
         }

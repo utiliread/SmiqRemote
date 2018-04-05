@@ -1,0 +1,13 @@
+<template>
+    <form submit.trigger="submit()">
+        <select class="form-control" value.bind="serverUrl">
+            <option repeat.for="[name,server] of devices" value="${server}">${name}</option>
+        </select>
+        Server (e.g. http://10.0.0.1:1122):
+        <div class="form-group">
+            <input class="form-control" type="text" value.bind="serverUrl & validate">
+        </div>
+        <button class="btn btn-default" type="button" click.delegate="save()">Save</button>
+        <button class="btn btn.primary" type="submit">Start</button>
+        </form>
+</template>

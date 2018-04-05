@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
 
 namespace SmiqServer
 {
@@ -13,7 +14,12 @@ namespace SmiqServer
 
         public TResult ParseResponse(byte[] response)
         {
-            return ParsePayload(Encoding.ASCII.GetString(response));
+            if (response[response.Length - 1] != '\n')
+            {
+                throw new ArgumentException();
+            }
+
+            return ParsePayload(Encoding.ASCII.GetString(response, 0, response.Length - 1));
         }
 
         public abstract string BuildPayload();

@@ -1,6 +1,6 @@
 ﻿namespace SmiqServer.Features.Common.Builders
 {
-    public class Trigger : CommandBuilder
+    public class Trig : CommandBuilder
     {
         public override string BuildPayload() => "*TRG";
     }

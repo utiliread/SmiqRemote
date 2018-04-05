@@ -1,0 +1,28 @@
+<template>
+    <input ref="importFile" type="file" change.delegate="import()" style="display: none">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card border-primary">
+                    <div class="card-header">
+                        ${identification}
+                        <button class="btn btn-default" click.delegate="export()">Export</button>
+                        <button class="btn btn-default" click.trigger="openImportDialog()">Import</button>
+                        <button class="btn btn-default" click.delegate="selectDevice()">Select Device</button>
+                    </div>
+                    <div class="card-body">
+                        Frequency:
+                        <input class="form-control" type="number" value.bind="frequency & updateTrigger:'blur':'paste'"> Power Level:
+                        <div class="input-group">
+                            <input class="form-control" type="number" min="-144" max="30" step="0.1" value.bind="level & updateTrigger:'blur':'paste'">
+                            <input class="form-control" type="number" min="-100" max="100" step="0.1" value.bind="levelOffset & updateTrigger:'blur':'paste'">
+                        </div>
+                        <b-radio name="output-state" checked.bind="state" model.bind="true">On</b-radio>
+                        <b-radio name="output-state" checked.bind="state" model.bind="false">Off</b-radio>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <router-view></router-view>
+    </div>
+</template>

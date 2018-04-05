@@ -1,0 +1,71 @@
+<template>
+    <b-radio name="modulation-state" checked.bind="state" model.bind="true">On</b-radio>
+    <b-radio name="modulation-state" checked.bind="state" model.bind="false">Off</b-radio>
+
+    Filter:
+    <select class="form-control" value.bind="filter">
+        <option value="SquareRootRaisedCosine">SquareRootRaisedCosine</option>
+        <option value="Cosine">Cosine</option>
+        <option value="Gaussian">Gaussian</option>
+        <option value="LinearizedGaussian">LinearizedGaussian</option>
+        <option value="Bessel1">Bessel1</option>
+        <option value="Bessel2">Bessel2</option>
+        <option value="IS95">IS95</option>
+        <option value="EqualizerIS95">EqualizerIS95</option>
+        <option value="APCO25">APCO25</option>
+        <option value="Tetra">Tetra</option>
+        <option value="WCDMA">WCDMA</option>
+        <option value="Rectangle">Rectangle</option>
+        <option value="SplitPhase">SplitPhase</option>
+        <option value="User">User</option>
+    </select>
+
+    Format:
+    <select class="form-control" value.bind="format">
+        <option value="ASK">ASK</option>
+        <option value="BPSK">BPSK</option>
+        <option value="QPSK">QPSK</option>
+        <option value="QPSK_IS95">QPSK_IS95</option>
+        <option value="QPSK_Inmarsat">QPSK_Inmarsat</option>
+        <option value="QPSK_ICO">QPSK_ICO</option>
+        <option value="QPSK_WCDMA">QPSK_WCDMA</option>
+        <option value="OQPSK">OQPSK</option>
+        <option value="OQPSK_IS95">OQPSK_IS95</option>
+        <option value="P4QPSK">P4QPSK</option>
+        <option value="P4DQPSK">P4DQPSK</option>
+        <option value="PSK8">PSK8</option>
+        <option value="PSK8Edge">PSK8Edge</option>
+        <option value="GMSK">GMSK</option>
+        <option value="GFSK">GFSK</option>
+        <option value="FSK2">FSK2</option>
+        <option value="FSK4">FSK4</option>
+        <option value="FSK4_APCO25">FSK4_APCO25</option>
+        <option value="QAM16">QAM16</option>
+        <option value="QAM32">QAM32</option>
+        <option value="QAM64">QAM64</option>
+        <option value="QAM256">QAM256</option>
+        <option value="USER">USER</option>
+    </select>
+
+    Sequence:
+    <select class="form-control" value.bind="sequence">
+        <option value="Auto">Auto</option>
+        <option value="Retrig">Retrig</option>
+        <option value="ArmedAuto">ArmedAuto</option>
+        <option value="ArmedRetrig">ArmedRetrig</option>
+        <option value="Single">Single</option>
+    </select>
+
+    Source:
+    <select class="form-control" value.bind="source">
+        <option value="ExtPar">ExtPar</option>
+        <option value="ExtSer">ExtSer</option>
+        <option value="Pattern">Pattern</option>
+        <option value="PRBS">PRBS</option>
+        <option value="SerData">SerData</option>
+        <option value="DataList">DataList</option>
+    </select>
+
+    FSK Deviation: <input class="form-control" type="number" value.bind="fskDeviation & updateTrigger:'blur':'paste'">
+    Symbol Rate: <input class="form-control" type="number" value.bind="symbolRate & updateTrigger:'blur':'paste'">
+</template>

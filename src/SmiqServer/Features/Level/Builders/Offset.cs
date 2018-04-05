@@ -1,13 +1,10 @@
-﻿namespace SmiqServer.Features.Source.Builders
+﻿namespace SmiqServer.Features.Level.Builders
 {
-    /// <summary>
-    /// §3.5.14.21
-    /// </summary>
-    public class Power
+    public class Offset
     {
         public class Get : QueryBuilder<decimal>
         {
-            public override string BuildPayload() => "SOURce:POWer?";
+            public override string BuildPayload() => "SOURce:POWer:LEVel:OFFSet?";
 
             public override decimal ParsePayload(string response) => decimal.Parse(response);
         }
@@ -22,7 +19,7 @@
 
             public Set(decimal power) => Power = power;
 
-            public override string BuildPayload() => string.Format("SOURce:POWer {0}dBm", Power);
+            public override string BuildPayload() => string.Format("SOURce:POWer:LEVel:OFFSet {0}dB", Power);
         }
     }
 }

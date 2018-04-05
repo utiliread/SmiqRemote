@@ -1,0 +1,11 @@
+<template>
+    <select class="form-control" value.bind="selectedDataListName">
+        <option repeat.for="dataList of dataListNames" model.bind="dataList">${dataList}</option>
+    </select>
+    <button class="btn btn-default" type="button" click.delegate="create()">New...</button>
+    <button class="btn btn-default" type="button" click.delegate="exportSelected()">Download</button>
+    <button class="btn btn-danger" type="button" click.delegate="deleteSelected()">Delete</button>
+    <div class="form-group">
+        <textarea class="form-control" value.bind="dataListHex & validate & updateTrigger:'blur':'paste'"></textarea>
+    </div>
+</template>

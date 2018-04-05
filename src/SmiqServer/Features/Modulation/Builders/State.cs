@@ -1,9 +1,9 @@
-﻿namespace SmiqServer.Features.Source.Builders
+﻿namespace SmiqServer.Features.Modulation.Builders
 {
     /// <summary>
     /// §3.5.14.14
     /// </summary>
-    public class Modulation
+    public class State
     {
         public class Get : QueryBuilder<bool>
         {

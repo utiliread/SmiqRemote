@@ -29,8 +29,12 @@ namespace SmiqServer
                 length = default;
                 return false;
             }
-
-            if (data[0] != '#')
+            else if (data.Length == 2 && data[0] == '0' && data[1] == '\n')
+            {
+                length = 2;
+                return true;
+            }
+            else if (data[0] != '#')
             {
                 throw new ArgumentException();
             }
@@ -52,7 +56,11 @@ namespace SmiqServer
 
         public static byte[] Decode(ReadOnlySpan<byte> data)
         {
-            if (!TryDecodeLength(data, out var length) || data.Length != length)
+            if (data.Length == 2 && data[0] == '0' && data[1] == '\n')
+            {
+                return Array.Empty<byte>();
+            }
+            else if (!TryDecodeLength(data, out var length) || data.Length != length)
             {
                 throw new ArgumentException();
             }

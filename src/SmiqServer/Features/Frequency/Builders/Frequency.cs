@@ -1,8 +1,5 @@
-﻿namespace SmiqServer.Features.Source.Builders
+﻿namespace SmiqServer.Features.Frequency.Builders
 {
-    /// <summary>
-    /// §3.5.14.7
-    /// </summary>
     public class Frequency
     {
         public class Get : QueryBuilder<decimal>

@@ -25,7 +25,7 @@ namespace SmiqServer
                 options.InputFormatters.Add(new HexInputFormatter());
                 options.InputFormatters.Add(new RawInputFormatter());
             })
-                .AddJsonOptions(options => options.SerializerSettings.Converters.Add(new StringEnumConverter(true)));
+                .AddJsonOptions(options => options.SerializerSettings.Converters.Add(new StringEnumConverter()));
 
             services.AddSwaggerGen(options =>
             {
