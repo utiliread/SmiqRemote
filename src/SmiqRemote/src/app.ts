@@ -36,7 +36,6 @@ export class App {
     }
 
     configureRouter(config: RouterConfiguration) {
-        config.options.pushState = true;
         config.map(routes);
     }
 
